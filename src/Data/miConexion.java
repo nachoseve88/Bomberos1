@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author nacho
  */
-public class conexion {
+public class miConexion {
   private static final String URL ="jdbc:mariadb://localhost/";
     private static final String DB ="bomberos";
     private static final String USUARIO ="root";
@@ -22,7 +22,7 @@ public class conexion {
     
     private static Connection connection;
     
-    private conexion(){};
+    private miConexion(){};
     
     public static Connection getConexion(){
         if(connection == null) {

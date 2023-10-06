@@ -20,11 +20,15 @@ import javax.swing.JOptionPane;
 public class CuartelData {
      private Connection con = null;
      
-     public void guardarCuartel(Cuartel cuartel){
+     public CuartelData(){
+           con = miConexion.getConexion();
+    }
+     
+     public void guardarCuartel(Cuartel cuartel)throws SQLException{
         String sql = "INSERT INTO `cuartel`(nombre_cuartel, direccion, coord_X, coord_Y, teléfono, correo) VALUES (?,?,?,?,?,?)";
         try{
            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-           ps.setString(1, cuartel.getNombre_Cuartel());
+           ps.setString(1, cuartel.getNombre_cuartel());
            ps.setString(2, cuartel.getDireccion());
            ps.setInt(3, cuartel.getCoord_X());
            ps.setInt(4, cuartel.getCoord_Y());
@@ -39,8 +43,8 @@ public class CuartelData {
           }else{
               System.out.println("No se pudo obtener ID");
         }
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a Alumno"+ex.getMessage());
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Error al acceder a Cuartel"+ex.getMessage());
     }
  }
 }

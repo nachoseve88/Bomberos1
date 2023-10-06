@@ -18,6 +18,10 @@ public class BrigadaData {
      private Connection con = null;
      private CuartelData cuaData = new CuartelData();
      
+     public BrigadaData(){
+           con = miConexion.getConexion();
+    }
+     
      public void guardarBrigada(Brigada brigada){
         String sql = "INSERT INTO brigada(nombre_br, especialidad, libre, codCuartel) VALUES (?,?,?,?)";
         try{
@@ -36,7 +40,7 @@ public class BrigadaData {
               System.out.println("No se pudo obtener ID");
         }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a Alumno"+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a brigada "+ex.getMessage());
     }
  }
 }

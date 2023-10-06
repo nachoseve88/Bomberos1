@@ -6,10 +6,12 @@
 package bomberos;
 
 import Data.BomberoData;
+import Data.BrigadaData;
 import Data.CuartelData;
 import Entidades.Bombero;
 import Entidades.Brigada;
 import Entidades.Cuartel;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
 import javax.swing.JOptionPane;
@@ -40,7 +42,7 @@ public class Bomberos {
     */    
     
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
     
     /**    
         int x = 0, y = 0;
@@ -86,7 +88,11 @@ public class Bomberos {
         Cuartel cua = new Cuartel();
         CuartelData cuaDat = new CuartelData();
         Cuartel cuartelverde = new Cuartel("Cuartel verde","Viamonte 333",55,22,"4544548","cuartelverde96@hotmi.com");
-        cuaDat.guardarCuartel(cua);
+        cuaDat.guardarCuartel(cuartelverde);
+        
+        BrigadaData briDat = new BrigadaData();
+        Brigada brigadaroja = new Brigada("brigada roja", "incendio en vivienda e industria", true, cuartelverde);
+        briDat.guardarBrigada(brigadaroja);
         
         //Brigada bri = new Brigada(); 
         //Bombero juan = new Bombero("33696717", "Juan Rodolfi", "AB", LocalDate.of(1995, Month.JANUARY, 15),"0291543234",);

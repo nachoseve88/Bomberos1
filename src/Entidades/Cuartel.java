@@ -11,7 +11,7 @@ package Entidades;
  */
 public class Cuartel {
     private int codCuartel;
-    private String nombre_Cuartel;
+    private String nombre_cuartel;
     private String direccion;
     private int coord_X;
     private int coord_Y;
@@ -21,9 +21,9 @@ public class Cuartel {
     public Cuartel(){
     }
 
-    public Cuartel(int codCuartel, String nombre_Cuartel, String direccion, int coord_X, int coord_Y, String telefono, String correo) {
+    public Cuartel(int codCuartel, String nombre_cuartel, String direccion, int coord_X, int coord_Y, String telefono, String correo) {
         this.codCuartel = codCuartel;
-        this.nombre_Cuartel = nombre_Cuartel;
+        this.nombre_cuartel = nombre_cuartel;
         this.direccion = direccion;
         this.coord_X = coord_X;
         this.coord_Y = coord_Y;
@@ -31,8 +31,8 @@ public class Cuartel {
         this.correo = correo;
     }
 
-    public Cuartel(String nombre_Cuartel, String direccion, int coord_X, int coord_Y, String telefono, String correo) {
-        this.nombre_Cuartel = nombre_Cuartel;
+    public Cuartel(String nombre_cuartel, String direccion, int coord_X, int coord_Y, String telefono, String correo) {
+        this.nombre_cuartel = nombre_cuartel;
         this.direccion = direccion;
         this.coord_X = coord_X;
         this.coord_Y = coord_Y;
@@ -50,12 +50,12 @@ public class Cuartel {
         this.codCuartel = codCuartel;
     }
 
-    public String getNombre_Cuartel() {
-        return nombre_Cuartel;
+    public String getNombre_cuartel() {
+        return nombre_cuartel;
     }
 
-    public void setNombre_Cuartel(String nombre_Cuartel) {
-        this.nombre_Cuartel = nombre_Cuartel;
+    public void setNombre_cuartel(String nombre_cuartel) {
+        this.nombre_cuartel = nombre_cuartel;
     }
 
     public String getDireccion() {
