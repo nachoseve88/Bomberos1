@@ -10,7 +10,7 @@ package Entidades;
  * @author nacho
  */
 public class Brigada {
-    private int idBrigada;
+    private int codBrigada;
     private String nombreBr;
     private String especialidad;
     private boolean libre;
@@ -19,8 +19,8 @@ public class Brigada {
     public Brigada(){
     }
 
-    public Brigada(int idBrigada, String nombreBr, String especialidad, boolean libre, Cuartel cuartel) {
-        this.idBrigada = idBrigada;
+    public Brigada(int codBrigada, String nombreBr, String especialidad, boolean libre, Cuartel cuartel) {
+        this.codBrigada = codBrigada;
         this.nombreBr = nombreBr;
         this.especialidad = especialidad;
         this.libre = libre;
@@ -35,12 +35,12 @@ public class Brigada {
     }
     
     
-    public int getIdBrigada() {
-        return idBrigada;
+    public int getcodBrigada() {
+        return codBrigada;
     }
 
-    public void setIdBrigada(int idBrigada) {
-        this.idBrigada = idBrigada;
+    public void setcodBrigada(int codBrigada) {
+        this.codBrigada = codBrigada;
     }
 
     public String getNombreBr() {

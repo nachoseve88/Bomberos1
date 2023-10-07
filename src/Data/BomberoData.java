@@ -25,6 +25,10 @@ public class BomberoData {
     private Connection con = null;
     private BrigadaData briData = new BrigadaData();
     
+     public BomberoData(){
+           con = miConexion.getConexion();
+    }
+    
     public void guardarBomero(Bombero bombero){
         String sql = "INSERT INTO bombero (dni, nombre_ape, fecha_nac, celular, codBrigada) VALUES (?,?,?,?,?)";
         try{
@@ -34,7 +38,7 @@ public class BomberoData {
            ps.setString(3, bombero.getNombrecompleto());
            ps.setDate(4, Date.valueOf(bombero.getFechaNac()));
            ps.setString(5, bombero.getCelular());
-           ps.setInt(6, bombero.getBrigada().getIdBrigada());//codbrigada
+           ps.setInt(6, bombero.getBrigada().getcodBrigada());//codbrigada
            
            ps.executeUpdate();
            
@@ -135,7 +139,7 @@ public class BomberoData {
             ps.setString(2, bombero.getNombrecompleto());
             ps.setDate(4, Date.valueOf(bombero.getFechaNac()));
             ps.setString(5, bombero.getCelular());
-            ps.setInt(6, bombero.getBrigada().getIdBrigada());// codBrigada
+            ps.setInt(6, bombero.getBrigada().getcodBrigada());// codBrigada
             int exito = ps.executeUpdate();
             
             if(exito == 1){

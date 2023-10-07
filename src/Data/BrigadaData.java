@@ -29,13 +29,13 @@ public class BrigadaData {
            ps.setString(1, brigada.getNombreBr());
            ps.setString(2, brigada.getEspecialidad());
            ps.setBoolean(3, brigada.isLibre());
-           ps.setInt(6, brigada.getCuartel().getcodCuartel());//codbrigada
+           ps.setInt(4, brigada.getCuartel().getcodCuartel());//codbrigada
            
            ps.executeUpdate();
            
           ResultSet rs = ps.getGeneratedKeys();
           if(rs.next()){
-              brigada.setIdBrigada(rs.getInt("idBrigada"));
+              brigada.setcodBrigada(rs.getInt("codBrigada"));
           }else{
               System.out.println("No se pudo obtener ID");
         }
@@ -43,4 +43,34 @@ public class BrigadaData {
             JOptionPane.showMessageDialog(null, "Error al acceder a brigada "+ex.getMessage());
     }
  }
+     
+    public Brigada buscarBrigada(int id){
+        Brigada brigada = null;
+        String sql = "SELECT codBrigada, nombre_br, especialidad, libre, codCuartel FROM `brigada` WHERE codBrigada = ?";
+        PreparedStatement ps = null;
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1,id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()){
+            brigada = new  Brigada();
+            
+            ps.setInt(1, brigada.getcodBrigada());
+            ps.setString(2, brigada.getNombreBr());
+            ps.setString(3, brigada.getEspecialidad());
+            ps.setBoolean(4, brigada.isLibre());
+            ps.setInt(5, brigada.getCuartel().getcodCuartel());
+            
+            JOptionPane.showMessageDialog(null,brigada.toString());
+        }else {
+                JOptionPane.showMessageDialog(null, "No existe la brigada");
+                }
+        ps.close();
+        } catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Brigada "+ex.getMessage());
+        }
+        return brigada;
+    }
 }
