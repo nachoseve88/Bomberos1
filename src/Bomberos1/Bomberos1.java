@@ -14,6 +14,7 @@ import Entidades.Cuartel;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -87,21 +88,21 @@ public class Bomberos1 {
     **/
   //    Cuartel cua = new Cuartel();
   //    CuartelData cuaDat = new CuartelData();
-        Cuartel cuartelverde = new Cuartel("Cuartel verde","Viamonte 333",55,22,"4544548","cuartelverde96@hotmi.com");
+//        Cuartel cuartelverde = new Cuartel("Cuartel verde","Viamonte 333",55,22,"4544548","cuartelverde96@hotmi.com");
   //    cuaDat.guardarCuartel(cuartelverde);
         
         
-        Cuartel cua = new Cuartel();
-        CuartelData cuaDat = new CuartelData();
-        BrigadaData briDat = new BrigadaData();
-  //    Brigada brigadaroja = new Brigada("brigada roja", "incendio en vivienda e industria", true, cuartelverde);
-        Brigada brigadaroja = briDat.buscarBrigada(1);
-        
-        
-        //Brigada bri = new Brigada(); 
-        Bombero juan = new Bombero("33696717", "Juan Rodolfi", "AB", LocalDate.of(1995, Month.JANUARY, 15), "0291543234", brigadaroja);
-        BomberoData bomDat = new BomberoData();
-        bomDat.guardarBomero(juan);
+//        Cuartel cua = new Cuartel();
+//        CuartelData cuaDat = new CuartelData();
+//        BrigadaData briDat = new BrigadaData();
+////      Brigada brigadaroja = new Brigada("brigada roja", "incendio en vivienda e industria", true, cuartelverde);
+//        Brigada brigadaroja = briDat.buscarBrigada();
+//        
+//        
+//        //Brigada bri = new Brigada(); 
+//        Bombero juan = new Bombero("33696717", "Juan Rodolfi", "AB", LocalDate.of(1995, Month.JANUARY, 15), "0291543234", brigadaroja);
+//        BomberoData bomDat = new BomberoData();
+//        bomDat.guardarBomero(juan);
     }    
         
  }

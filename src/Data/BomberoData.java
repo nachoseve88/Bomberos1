@@ -30,12 +30,12 @@ public class BomberoData {
     }
     
     public void guardarBomero(Bombero bombero){
-        String sql = "INSERT INTO bombero (dni, nombre_ape, fecha_nac, celular, codBrigada) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO bombero (dni, nombre_ape, grupoSanguineo, fecha_nac, celular, codBrigada) VALUES (?,?,?,?,?,?)";
         try{
            PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-           ps.setInt(1, bombero.getIdBombero());
-           ps.setString(2, bombero.getDni());
-           ps.setString(3, bombero.getNombrecompleto());
+           ps.setString(1, bombero.getDni());
+           ps.setString(2, bombero.getNombrecompleto());
+           ps.setString(3, bombero.getGrupoSangineo());
            ps.setDate(4, Date.valueOf(bombero.getFechaNac()));
            ps.setString(5, bombero.getCelular());
            ps.setInt(6, bombero.getBrigada().getcodBrigada());//codbrigada
@@ -49,7 +49,7 @@ public class BomberoData {
               System.out.println("No se pudo obtener ID");
         }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a Alumno"+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a Bombero"+ex.getMessage());
     }
  }
     public Bombero buscarBombero(int id){
