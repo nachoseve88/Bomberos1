@@ -66,7 +66,7 @@ public class CuartelData {
             cuartel.setCoord_Y(rs.getInt("coord_Y"));
             cuartel.setTelefono(rs.getString("teléfono"));
      
-            JOptionPane.showMessageDialog(null,cuartel.toString());
+ 
         }else {
                 JOptionPane.showMessageDialog(null, "No existe el cuartel");
                 }

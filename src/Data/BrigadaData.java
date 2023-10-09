@@ -68,7 +68,7 @@ public class BrigadaData {
            brigada.setLibre(rs.getBoolean("libre"));
             brigada.setCuartel(cua);
             brigadas.add(brigada);
-            JOptionPane.showMessageDialog(null,brigada.toString());
+    
    
                 }
         ps.close();

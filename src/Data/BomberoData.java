@@ -49,7 +49,7 @@ public class BomberoData {
               System.out.println("No se pudo obtener ID");
         }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Error al acceder a Bombero"+ex.getMessage());
+//            JOptionPane.showMessageDialog(null,ex.getMessage());
     }
  }
     public Bombero buscarBombero(int id){
@@ -65,10 +65,11 @@ public class BomberoData {
             if(rs.next()){
             bombero = new  Bombero();
             bombero.setIdBombero(id);
-            bombero.setNombrecompleto(rs.getString("nombre_com"));
+            bombero.setNombrecompleto(rs.getString("nombre_ape"));
             bombero.setFechaNac(rs.getDate("fecha_nac").toLocalDate());
             bombero.setCelular(rs.getString("celular"));
         //    bombero.setBrigada(rs.getObject("codBrigada", type)); //brigada
+        JOptionPane.showMessageDialog(null, bombero.getNombrecompleto());
             
         }else {
                 JOptionPane.showMessageDialog(null, "No existe el bombero");
@@ -122,7 +123,7 @@ public class BomberoData {
                bombero.setFechaNac(rs.getDate("fecha_nac").toLocalDate());
                bombero.setCelular(rs.getString("celular"));
         //       bombero.setBrigada(rs.getObject("codBrigada", type));//brigada
-                             
+                      JOptionPane.showMessageDialog(null, bombero.getNombrecompleto());        
             }
             ps.close();
         } catch(SQLException ex){
@@ -130,30 +131,32 @@ public class BomberoData {
         }
         return alumnos;
     }
-    public void modificarAlumno(Bombero bombero){
-        String sql = "UPDATE bombero SET dni = ? , nombre_ape = ?, fecha_nac= ?, celular= ?, codBrigada= ? WHERE id-bombero =?";
+    public void modificaBombero(Bombero bombero){
+        String sql = "UPDATE bombero SET dni = ? , nombre_ape = ?, fecha_nac= ?, grupoSanguineo = ?, celular= ?, codBrigada= ? WHERE id_bombero =?";
         PreparedStatement ps = null;
         try{
             ps = con.prepareStatement(sql);
             ps.setString(1, bombero.getDni());
             ps.setString(2, bombero.getNombrecompleto());
-            ps.setDate(4, Date.valueOf(bombero.getFechaNac()));
+            ps.setDate(3, Date.valueOf(bombero.getFechaNac()));
+            ps.setString(4, bombero.getGrupoSangineo());
             ps.setString(5, bombero.getCelular());
             ps.setInt(6, bombero.getBrigada().getcodBrigada());// codBrigada
+            ps.setInt(7,bombero.getIdBombero());
             int exito = ps.executeUpdate();
             
             if(exito == 1){
                 JOptionPane.showMessageDialog(null, "Modificado exitosamente.");
             }else{
-                JOptionPane.showMessageDialog(null,"El alumno no existe");
+                JOptionPane.showMessageDialog(null,"El bombero no existe");
             }
         }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno "+ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla bombero "+ex.getMessage());
         }
     }
-    public void eliminarAlumno(int id){
+    public void eliminarBombero(int id){
         try{
-            String sql = "UPDATE `bombero` SET `id_bombero`= ?,dni= ?,nombre_ape= ?,fecha_nac=?,celular= ?,codBrigada= ? WHERE id_bombero = ?";
+            String sql = "DELETE FROM bombero WHERE id_bombero = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
             int fila = ps.executeUpdate();
